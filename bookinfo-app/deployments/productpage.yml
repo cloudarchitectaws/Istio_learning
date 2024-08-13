@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: productpage-v1
+  namespace: dev
   labels:
     app: productpage
     version: v1
