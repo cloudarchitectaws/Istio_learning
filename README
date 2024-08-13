@@ -1,0 +1,56 @@
+# Kubernetes Deployment with ArgoCD
+
+This repository contains Kubernetes manifests for deploying the Bookinfo application with ArgoCD. The structure is organized to separate different types of Kubernetes resources for better management and clarity.
+
+## Directory Structure
+
+├── argocd/
+│ └── bookinfo-app.yml
+├── bookinfo-app/
+├── deployment/
+│ ├── details.yml
+│ ├── ratings.yml
+│ └── reviews.yml
+├── serviceaccounts/
+│ └── bookinfo_serviceaccount.yml
+└── services/
+├── details.yml
+├── productpage.yml
+├── ratings.yaml
+└── reviews.yml
+
+*******************************************************************
+
+### `argocd/`
+
+- **`bookinfo-app.yml`**: Defines the ArgoCD application manifest for the Bookinfo application. This file configures ArgoCD to deploy and manage the application from the specified source repository.
+
+### `bookinfo-app/`
+
+- This directory is currently empty but is reserved for additional application-level configurations or resources if needed in the future.
+
+### `deployment/`
+
+- **`details.yml`**: Deployment configuration for the Details service.
+- **`ratings.yml`**: Deployment configuration for the Ratings service.
+- **`reviews.yml`**: Deployment configuration for the Reviews service.
+
+### `serviceaccounts/`
+
+- **`bookinfo_serviceaccount.yml`**: Contains ServiceAccount definitions for the Bookinfo application, including specific configurations required for each service.
+
+### `services/`
+
+- **`details.yml`**: Service definition for the Details service.
+- **`productpage.yml`**: Service definition for the Productpage service.
+- **`ratings.yaml`**: Service definition for the Ratings service.
+- **`reviews.yml`**: Service definition for the Reviews service.
+
+## Setup and Deployment
+
+1. **Install ArgoCD**: Follow the official [ArgoCD installation guide](https://argo-cd.readthedocs.io/en/stable/getting_started/) to set up ArgoCD in your Kubernetes cluster.
+
+2. **Apply Service Accounts**:
+   ```bash
+   kubectl apply -f serviceaccounts/bookinfo_serviceaccount.yml
+-

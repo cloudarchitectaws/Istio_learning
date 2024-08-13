@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookinfo
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: 'https://github.com/cloudarchitectaws/Istio_learning.git'
+    targetRevision: HEAD
+    path: 'bookinfo-app'  # Adjust this path to where your manifests are located
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
