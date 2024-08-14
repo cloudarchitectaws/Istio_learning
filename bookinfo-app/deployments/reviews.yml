@@ -1,8 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reviews-v1
-  namespace: dev
+  name: reviews-v1 
   labels:
     app: reviews
     version: v1
